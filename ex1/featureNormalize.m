@@ -27,9 +27,14 @@ featu = size(X,2);
 %
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
-mu = sum(X,1)/size(X,1);
-sigma = (sum(X.*X,1) - mu.*mu)/size(X,1);
-sigma = sigma.^(0.5);
+mu = mean(X,1);
+sigma = std(X,1);
+for i = 1:featu
+	for j=1:test
+		X(j,i)=(X(j,i)-mu(i))/sigma(i);
+	end
+end
+
 
 
 
